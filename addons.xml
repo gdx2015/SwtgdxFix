@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.SportsDevil" version="02-01-2016_fx1" name="SportsDevil" provider-name="Hubbab3 fix by swtgdx">
+<addon id="plugin.video.SportsDevil" version="12-01-2016_fx1" name="SportsDevil" provider-name="Hubbab3 fix by swtgdx">
 <requires>
 <import addon="xbmc.python" version="2.14.0"/>
 <import addon="script.module.requests" />
