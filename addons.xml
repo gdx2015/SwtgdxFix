@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.SportsDevil" version="02.01.2016_fx1" name="SportsDevil" provider-name="MaxMustermann, HUBBAB3 fix by SWTGDX">
+<addon id="plugin.video.SportsDevil" version="fx1.01.02.2016" name="SportsDevil" provider-name="MaxMustermann, HUBBAB3 fix by SWTGDX">
 <requires>
 <import addon="xbmc.python" version="2.14.0"/>
 <import addon="script.module.requests" />
@@ -18,13 +18,13 @@
 <addon id="repo.fixSwtgdx" name="Fix-SWTGDX Repository" version="1.0.1" provider-name="FixSWTGDX">
 <extension point="xbmc.addon.repository" name="Fix-SWTGDX Repository">
 <dir>
-<info compressed="false">https://raw.githubusercontent.com/gdx2015/SwtgdxFix/master/addons.xml</info>
-<checksum>https://raw.githubusercontent.com/gdx2015/SwtgdxFix/master/addons.md5</checksum>
-<datadir zip="true">https://github.com/gdx2015/SwtgdxFix/raw/master/zips</datadir>
-</dir>
 <info compressed="false">http://weblink.cu.cc/repo/addons.xml</info>
 <checksum>http://weblink.cu.cc/repo/addons.md5</checksum>
 <datadir zip="true">http://weblink.cu.cc/repo/zips</datadir>
+</dir>
+<info compressed="false">https://raw.githubusercontent.com/gdx2015/SwtgdxFix/master/addons.xml</info>
+<checksum>https://raw.githubusercontent.com/gdx2015/SwtgdxFix/master/addons.md5</checksum>
+<datadir zip="true">https://github.com/gdx2015/SwtgdxFix/raw/master/zips</datadir>
 </extension>
 <extension point="xbmc.addon.metadata">
 <summary>Install Fix-SWTGDX addons</summary>
