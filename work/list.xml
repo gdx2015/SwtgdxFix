@@ -11,16 +11,16 @@
     <link>$doregex[makelist2]</link>
 ]]></listrepeat>
 <expres>(?s)h8&gt;\s*(.+?)\s*&lt;.+?blockquote&gt;(.+?)&lt;\/blockquote</expres>
-<page>http://foxsat.tv/live.php</page>
+<page>http://foxsat.info/live.php</page>
 <cookieJar>$doregex[log]</cookieJar>
 </regex>
 <regex>
 <name>makelist2</name>
 <listrepeat><![CDATA[
     <title>[B][makelist2.param2][/B]</title>
-    <link>$doregex[url]|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:44.0) Gecko/20100101 Firefox/44.0</link>
-	<link>$doregex[url] swfUrl=http://p.jwpcdn.com/6/5/jwplayer.flash.swf pageUrl=http://foxsat.tv/ live=1  timeout=15</link>
-    <thumbnail>http://foxsat.tv/[makelist2.param3]</thumbnail>    
+    <link>$doregex[url]</link>
+    <link>$doregex[url] swfUrl=http://p.jwpcdn.com/6/5/jwplayer.flash.swf pageUrl=http://foxsat.info/ live=1  timeout=15</link>
+    <thumbnail>http://foxsat.info/[makelist2.param3]</thumbnail>    
 ]]></listrepeat>
 <expres>(?s)href="(.+?)".+?&gt;\s*(.+?)\s*&lt;.+?src="(.+?)"&gt;</expres>
 <page>[makelist.param2]</page>
@@ -29,15 +29,15 @@
 <regex>
 <name>url</name>
 <expres>(?:file|url|href)[:=]\s*['"]((?:http|rtmp).*?)['"]</expres>
-<page>http://foxsat.tv/[makelist2.param1]</page>
-<referer>http://foxsat.tv/</referer>
+<page>http://foxsat.info/[makelist2.param1]</page>
+<referer>http://foxsat.info</referer>
 <cookieJar>$doregex[log]</cookieJar>
 </regex>
 <regex>
 <name>log</name>
 <expres></expres>
-<page>http://foxsat.tv/index.php</page>
-<referer>http://foxsat.tv/</referer>
+<page>http://foxsat.info/index.php</page>
+<referer>http://foxsat.info</referer>
 <rawpost>password=amicidinessuno&amp;login=Accedi</rawpost>
 <cookieJar></cookieJar>
 </regex>
