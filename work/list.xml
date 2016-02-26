@@ -2,7 +2,7 @@
 <items>
 
 <item>
-<title>Foxsat</title>
+<title>Foxsat - www.nobanner.info</title>
 <link>$doregex[makelist]</link>
 <regex>
 <name>makelist</name>
@@ -10,38 +10,39 @@
     <title>[B][COLOR snow][makelist.param1][/COLOR][/B]</title>
     <link>$doregex[makelist2]</link>
 ]]></listrepeat>
-<expres>(?s)h8&gt;\s*(.+?)\s*&lt;.+?blockquote&gt;(.+?)&lt;\/blockquote</expres>
-<page>http://foxsat.info/live.php</page>
+<expres><![CDATA[(?s)h3>\s*(.+?)\s*<(.+?)<\/p]]></expres>
+<page>http://nobanner.info/live.php</page>
 <cookieJar>$doregex[log]</cookieJar>
 </regex>
 <regex>
 <name>makelist2</name>
 <listrepeat><![CDATA[
-    <title>[B][makelist2.param2][/B]</title>
+    <title>[B][makelist2.param3][/B]</title>
     <link>$doregex[url]</link>
-    <link>$doregex[url] swfUrl=http://p.jwpcdn.com/6/5/jwplayer.flash.swf pageUrl=http://foxsat.info/ live=1  timeout=15</link>
-    <thumbnail>http://foxsat.info/[makelist2.param3]</thumbnail>    
+	<link>$doregex[url] swfUrl=http://p.jwpcdn.com/6/5/jwplayer.flash.swf pageUrl=http://nobanner.info/ live=1  timeout=15</link>
+    <thumbnail>http://nobanner.info/[makelist2.param2]</thumbnail>    
 ]]></listrepeat>
-<expres>(?s)href="(.+?)".+?&gt;\s*(.+?)\s*&lt;.+?src="(.+?)"&gt;</expres>
+<expres><![CDATA[(?s)href="(.+?)".+?>.+?src="(.+?)">\s*(.+?)<\/a]]></expres>
 <page>[makelist.param2]</page>
 <cookieJar></cookieJar>
 </regex>
 <regex>
 <name>url</name>
 <expres>(?:file|url|href)[:=]\s*['"]((?:http|rtmp).*?)['"]</expres>
-<page>http://foxsat.info/[makelist2.param1]</page>
-<referer>http://foxsat.info</referer>
+<page>http://nobanner.info/[makelist2.param1]</page>
+<referer>http://nobanner.info/</referer>
 <cookieJar>$doregex[log]</cookieJar>
 </regex>
 <regex>
 <name>log</name>
 <expres></expres>
-<page>http://foxsat.info/index.php</page>
-<referer>http://foxsat.info</referer>
+<page>http://nobanner.info/index.php</page>
+<referer>http://nobanner.info/</referer>
 <rawpost>password=amicidinessuno&amp;login=Accedi</rawpost>
 <cookieJar></cookieJar>
 </regex>
 </item>
+
 
 <item>
 <title>www.wizhdsports.com</title>
@@ -53,7 +54,7 @@
    <link>$doregex[makelist2]</link>
    <referer>http://wizhdsports.com</referer>
 ]]></listrepeat>
-<expres>(?s)class="match".+?class="name"&gt;\s*(.+?)\s*&lt;.*?margin.*?&gt;([\d:\s-]+).+?channel.+?&gt;(.+?)&lt;script</expres>
+<expres><![CDATA[(?s)class="match".+?class="name">\s*(.+?)\s*<.*?margin.*?>([\d:\s-]+).+?channel.+?>(.+?)<script]]></expres>
 <page>http://wizhdsports.com/</page>
 <cookieJar></cookieJar>
 </regex>
@@ -64,7 +65,7 @@
    <sportsdevil>http://wizhdsports.com/live/stream[makelist2.param1].php</sportsdevil>
    <referer>http://wizhdsports.com</referer>
 ]]></listrepeat>
-<expres>(?s)float:left.{4,10}href.+?Stream\s*(\d+)\s*&lt;\/a</expres>
+<expres><![CDATA[(?s)float:left.{4,10}href.+?Stream\s*(\d+)\s*<\/a]]></expres>
 <page>[makelist.param3]</page>
 <cookieJar></cookieJar>
 </regex>
@@ -141,6 +142,104 @@
 <name>pal</name>
 <expres>(?s)Live.*trafficinvest.*?p&gt;(.*?)&lt;\/div&gt;</expres>
 <page>http://footballstreams.net/</page>
+</regex>
+</item>
+
+<item>
+<title>www.streamsarena.eu</title>
+<link>$doregex[makelist]</link>
+<regex>
+<name>makelist</name>
+<listrepeat><![CDATA[ 
+   <title>[makelist.param1]</title>
+   <sportsdevil>http://streamsarena.eu/player/player[makelist.param2].html</sportsdevil>
+   <referer>http://streamsarena.eu</referer>
+]]></listrepeat>
+<expres><![CDATA[(?s)(?:<p>|<\/br>)\s*(.+?)\s*on\s*<a.+?(\d+).html]]></expres>
+<page>http://streamsarena.eu</page>
+<cookieJar></cookieJar>
+</regex>
+</item>
+
+<item>
+<title>www.sportstream365.com</title>
+<link>$doregex[makelist]</link>
+<regex>
+	<name>makelist</name>
+	<listrepeat><![CDATA[
+	   <title>[makelist.param2]</title>
+	   <link>$doregex[makelist2]</link>
+	   <thumbnail>NA</thumbnail>
+	]]></listrepeat>
+	<expres>&lt;/li&gt;\n.*\n.*?"(.*?)".*name.*?&gt;(.*)&lt;</expres>
+	<page>http://sportstream365.com/</page>
+	<setcookie>lng=en</setcookie>
+</regex>
+<regex>
+<name>makelist2</name>
+<listrepeat><![CDATA[
+<title>[B][COLOR snow][makelist2.param2] - [makelist2.param3][/COLOR][/B]</title>
+<link>rtmpe://185.28.189.30/xlive playpath=raw:sl5_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://185.28.190.158/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://94.242.254.72/xlive playpath=raw:sl2_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://178.175.132.210/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://185.56.137.178/xlive playpath=raw:sl5_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://178.175.136.42/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://178.17.168.90/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://185.28.190.158/xlive playpath=raw:sl2_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://46.28.207.118/xlive playpath=raw:sl5_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://94.242.254.211/xlive playpath=raw:sl2_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<thumbnail>NA</thumbnail>
+]]></listrepeat>
+<expres>FirstGameId":(.*?),.*?Opp1":"(.*?)".*?:"(.*?)"</expres>
+<page>http://sportstream365.com/LiveFeed/GetLeftMenuShort?sports=$doregex[id]&amp;lng=en&amp;partner=24&amp;_=$epoctime2$</page>
+<referer>http://sportstream365.com/</referer>
+<cookieJar></cookieJar>
+</regex>
+<regex>
+<name>id</name>
+<expres>typeAllow" value="(.*?)"<expres>
+<page>http://sportstream365.com[makelist.param1]</page>
+<cookieJar></cookieJar>
+</regex>
+<regex>
+<name>vid</name>
+<expres>VI":"(.*?)"<expres>
+<page>http://sportstream365.com/LiveFeed/GetGame?lng=en&amp;id=[makelist2.param1]&amp;partner=24&amp;_=$epoctime2$</page>
+<cookieJar></cookieJar>
+</regex>
+</item>
+
+<item>
+<title>Sportube.TV</title>
+<link>$doregex[makelist]</link>
+<thumbnail>http://sportube.tv/assets/img/logo.png</thumbnail>
+<fanart>http://streaming.sportube.tv/Web/FILES/public/extra/back_sport-4.jpg</fanart>
+<regex>
+<name>makelist</name>
+<listrepeat><![CDATA[
+    <title>[B][COLOR snow][makelist.param6][/COLOR][COLOR lime]--[/COLOR][COLOR snow][makelist.param5][/COLOR][COLOR lime]-->[/COLOR][COLOR dodgerblue][makelist.param2][/COLOR][COLOR lime]<--[/COLOR][COLOR snow][makelist.param1][/COLOR][/B]</title>
+    <link>$doregex[makelist2]</link>
+    <thumbnail>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</thumbnail>
+    <fanart>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</fanart>
+]]></listrepeat>
+<expres>\[.*?"(.*?)".*?"http.*?\/(\w*)\.([\w]{3})".*?"(http.*?)".*?[\d-]*\s*([\d:]{4,5})\:00.*?"(\w*)".*?\]</expres>
+<page>https://api2.sportube.tv/api/portal/tv.jsonp</page>
+<referer>http://www.sportube.tv/</referer>
+<cookieJar></cookieJar>
+</regex>
+<regex>
+<name>makelist2</name>
+<listrepeat><![CDATA[
+    <title>[B]--->[COLOR dodgerblue][makelist2.param1]p[/COLOR][/B]</title>
+    <link>[makelist2.param2]</link>
+    <thumbnail>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</thumbnail>
+    <fanart>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</fanart>
+]]></listrepeat>
+<expres>TION.*?x(\d+).*?\s+(http.*?)\s</expres>
+<page>[makelist.param4]</page>
+<referer>http://www.sportube.tv/</referer>
+<cookieJar></cookieJar>
 </regex>
 </item>
 
