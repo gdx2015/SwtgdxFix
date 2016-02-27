@@ -223,7 +223,7 @@
     <thumbnail>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</thumbnail>
     <fanart>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</fanart>
 ]]></listrepeat>
-<expres>\[.*?"(.*?)".*?"http.*?\/(\w*)\.([\w]{3})".*?"(http.*?)".*?[\d-]*\s*([\d:]{4,5})\:00.*?"(\w*)".*?\]</expres>
+<expres>\[.*?"(.*?)".*?"http.*?\/(\w*)\.([\w]{3})".+?,\s*(\d{2,6}),.+?([\d:]{4,5})\:00.*?"(\w*)".*?\]</expres>
 <page>https://api2.sportube.tv/api/portal/tv.jsonp</page>
 <referer>http://www.sportube.tv/</referer>
 <cookieJar></cookieJar>
@@ -237,9 +237,15 @@
     <fanart>http://static.sportube.tv/Web/FILES/public/live/[makelist.param2].[makelist.param3]</fanart>
 ]]></listrepeat>
 <expres>TION.*?x(\d+).*?\s+(http.*?)\s</expres>
-<page>[makelist.param4]</page>
+<page>$doregex[url]</page>
 <referer>http://www.sportube.tv/</referer>
 <cookieJar></cookieJar>
+</regex>
+<regex>
+<name>url</name>
+<expres>urls".*?"(.+?)"</expres>
+<page>https://api2.sportube.tv/api/portal/get_event?id=[makelist.param4]</page>
+<referer>https://sportube.tv/</referer>
 </regex>
 </item>
 
