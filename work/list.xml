@@ -45,7 +45,7 @@
 
 
 <item>
-<title>www.wizhdsports.com</title>
+<title>Wizhdsports</title>
 <link>$doregex[makelist]</link>
 <regex>
 <name>makelist</name>
@@ -61,11 +61,11 @@
 <regex>
 <name>makelist2</name>
 <listrepeat><![CDATA[ 
-<title>Stream [makelist2.param1]</title>
+<title>Stream [makelist2.param1] [makelist2.param2]</title>
    <sportsdevil>http://wizhdsports.com/live/stream[makelist2.param1].php</sportsdevil>
    <referer>http://wizhdsports.com</referer>
 ]]></listrepeat>
-<expres><![CDATA[(?s)float:left.{4,10}href.+?Stream\s*(\d+)\s*<\/a]]></expres>
+<expres><![CDATA[(?s)float:left.{4,10}href.+?Stream\s*(\d+)\s*(.*?)\s*<\/a]]></expres>
 <page>[makelist.param3]</page>
 <cookieJar></cookieJar>
 </regex>
@@ -162,7 +162,7 @@
 </item>
 
 <item>
-<title>www.sportstream365.com</title>
+<title>Sportstream365.com</title>
 <link>$doregex[makelist]</link>
 <regex>
 	<name>makelist</name>
@@ -180,15 +180,15 @@
 <listrepeat><![CDATA[
 <title>[B][COLOR snow][makelist2.param2] - [makelist2.param3][/COLOR][/B]</title>
 <link>rtmpe://185.28.189.30/xlive playpath=raw:sl5_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
-<link>rtmpe://185.28.190.158/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://185.28.190.158/xlive playpath=raw:sl4_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
 <link>rtmpe://94.242.254.72/xlive playpath=raw:sl2_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
-<link>rtmpe://178.175.132.210/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://46.28.207.118/xlive playpath=raw:sl1_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
 <link>rtmpe://185.56.137.178/xlive playpath=raw:sl5_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
 <link>rtmpe://178.175.136.42/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
 <link>rtmpe://178.17.168.90/xlive playpath=raw:sl3_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
 <link>rtmpe://185.28.190.158/xlive playpath=raw:sl2_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
-<link>rtmpe://46.28.207.118/xlive playpath=raw:sl5_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
-<link>rtmpe://94.242.254.211/xlive playpath=raw:sl2_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://94.242.254.72/xlive playpath=raw:sl1_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
+<link>rtmpe://185.56.137.178/xlive playpath=raw:sl1_$doregex[vid]  conn=S:client conn=S:3.1.0.9 conn=S:en live=1 timeout=15</link>
 <thumbnail>NA</thumbnail>
 ]]></listrepeat>
 <expres>FirstGameId":(.*?),.*?Opp1":"(.*?)".*?:"(.*?)"</expres>
