@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.SportsDevil" version="Up_24_09_2016_fx3" name="SportsDevil" provider-name="SportsDevil - HUBBAB3 - fix Jairox, fix by SWTGDX">
-<requires>
-<import addon="xbmc.python" version="2.14.0"/>
-<import addon="script.module.simplejson" />
-<import addon="script.module.six" />
-<import addon="script.module.requests" />
-<import addon="script.module.livestreamer" />
-<import addon="script.module.pydevd" version="4.4.0" optional="true"/>
-</requires>
-<extension point="xbmc.python.pluginsource" library="default.py">
-<provides>video</provides>
-</extension>
-<extension point="xbmc.addon.metadata">
-<summary>Play videos of different sports streaming sites</summary>
-<description>Play videos of different sports streaming sites</description>
-<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-<platform>all</platform>
-</extension>
+<addon id="plugin.video.SportsDevil" version="2017.08.20-modvs1" name="SportsDevil" provider-name="SportsDevil">
+  <requires>
+   <import addon="xbmc.python" version="2.14.0"/>
+   <import addon="script.module.dateutil" />
+   <import addon="script.module.simplejson" />
+   <import addon="script.module.six" />
+   <import addon="script.module.requests" />
+   <import addon="script.module.livestreamer" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+  <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service/proxy_service.py" start="startup" />
+  <extension point="xbmc.addon.metadata">
+  <summary>Play videos of different ad-financed sports streaming sites</summary>
+  <description>Play videos of different ad-financed sports streaming sites. SportsDevil does not provide any streams of its own; stream quality, content and copyright are responsibility of the ad-financed source web site. For updates check the readme.</description>
+  <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+  <platform>all</platform>
+  </extension>
 </addon>
 <addon id="repo.fixSwtgdx" name="Fix-SWTGDX Repository" version="1.0.1" provider-name="FixSWTGDX">
 <extension point="xbmc.addon.repository" name="Fix-SWTGDX Repository">
 <dir>
-<info compressed="false">http://weblink.cu.cc/repo/addons.xml</info>
-<checksum>http://weblink.cu.cc/repo/addons.md5</checksum>
-<datadir zip="true">http://weblink.cu.cc/repo/zips</datadir>
-</dir>
 <info compressed="false">https://raw.githubusercontent.com/gdx2015/SwtgdxFix/master/addons.xml</info>
 <checksum>https://raw.githubusercontent.com/gdx2015/SwtgdxFix/master/addons.md5</checksum>
 <datadir zip="true">https://github.com/gdx2015/SwtgdxFix/raw/master/zips</datadir>
+</dir>
+<info compressed="false">http://weblink.cu.cc/repo/addons.xml</info>
+<checksum>http://weblink.cu.cc/repo/addons.md5</checksum>
+<datadir zip="true">http://weblink.cu.cc/repo/zips</datadir>
 </extension>
 <extension point="xbmc.addon.metadata">
 <summary>Install Fix-SWTGDX addons</summary>
