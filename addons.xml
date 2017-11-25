@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.SportsDevil" version="2017-modvs10" name="SportsDevil" provider-name="SportsDevil">
+<addon id="plugin.video.SportsDevil" version="2017modvs10" name="SportsDevil" provider-name="SportsDevil">
   <requires>
    <import addon="xbmc.python" version="2.14.0"/>
    <import addon="script.module.dateutil" />
