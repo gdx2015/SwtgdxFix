@@ -1,0 +1,142 @@
+<item>
+<title>[COLOR white][+][COLOR orange]Buscar[/COLOR][/COLOR]</title>
+<link>$doregex[makelist]</link>
+<thumbnail>https://raw.githubusercontent.com/Andorth/Hercules/master/imagenes/Buscar.png</thumbnail>
+<regex>
+<name>makelist</name>
+<listrepeat><![CDATA[
+<title>[makelist.param2]</title>
+<link>$doregex[resolve]</link>
+<thumbnail>https://i.ytimg.com/vi/[makelist.param1]/hqdefault.jpg</thumbnail>
+]]></listrepeat>
+<expres>u'(.+?)', u'(.+?)'</expres>
+<page>$doregex[search]</page>
+</regex>
+ 
+<regex>
+<name>resolve</name>
+<expres><![CDATA[#$pyFunction
+import urlresolver
+def GetLSProData(page_data,Cookie_Jar,m):
+ url = 'https://www.youtube.com/watch?v=[makelist.param1]'
+ streamLink = urlresolver.resolve(url)
+ return streamLink
+]]></expres>
+<page></page>
+</regex>
+ 
+<regex>
+<name>search</name>
+<expres><![CDATA[#$pyFunction
+import requests,xbmcgui,xbmc, re,time, xbmcaddon
+def GetLSProData(page_data,Cookie_Jar,m):
+ 
+ text=takeInputFortext('Enter search string')
+ url = 'https://www.youtube.com/results?search_query=' + text.replace(' ', '+')
+ req = requests.get(url)
+ list1 = re.findall('yt-lockup-c.+?a\shref=".watch.v=([^"]+)".+?\s\stitle="([^"]+)"\s', req.text)
+ 
+ count = 50
+ while count > 1:
+   try:
+     url = 'https://www.youtube.com' + re.findall('a href="([^"]+)".+<\/a>\n <\/div>', req.text)[0]
+   except:
+     return list1
+   req = requests.get(url)
+   list2 = re.findall('yt-lockup-c.+?a\shref=".watch.v=([^"]+)".+?\s\stitle="([^"]+)"\s', req.text)
+   list1 = list1 + list2
+   count = count - 1
+ return list1
+ 
+def takeInputFortext(txt):
+ addon = xbmcaddon.Addon('plugin.video.Hercules')
+ addon_version = addon.getAddonInfo('version')
+ profile = xbmc.translatePath(addon.getAddonInfo('profile').decode('utf-8'))
+ 
+ solver = InputWindow( txt=txt)
+ solution = solver.get()
+ return solution
+ 
+class InputWindow(xbmcgui.WindowDialog):
+    def __init__(self, *args, **kwargs):
+       
+        self.txt = kwargs.get('txt','')
+ 
+        xbmcgui.WindowXMLDialog.__init__(self)
+        #self.addControl(self.txt)
+        path = xbmcaddon.Addon().getAddonInfo('path')
+        self.kbd = xbmc.Keyboard()
+        self.kbd.setHeading( self.txt)
+ 
+    def get(self):
+        self.show()
+        time.sleep(2)
+        self.kbd.doModal()
+        if (self.kbd.isConfirmed()):
+            text = self.kbd.getText()
+            self.close()
+            return text
+        self.close()
+        return False
+]]></expres>
+<page></page>
+</regex>
+</item>
+
+<item>
+<title>[COLOR orange][B]ANIMALES[/B][/COLOR] [COLOR white] Categorias [/COLOR]</title>
+<link>$doregex[makelist2]</link>
+<info>Documentales de Animales</info>
+<externallink>https://raw.githubusercontent.com/Andorth/Hercules/master/documentales/animales.xml</externallink>
+<thumbnail>https://yt3.ggpht.com/-PffQf1WmI2U/AAAAAAAAAAI/AAAAAAAAAAA/Z3eaLPrvd6Y/s100-c-k-no-mo-rj-c0xffffff/photo.jpg<thumbnail>
+<fanart>https://yt3.ggpht.com/-PffQf1WmI2U/AAAAAAAAAAI/AAAAAAAAAAA/Z3eaLPrvd6Y/s100-c-k-no-mo-rj-c0xffffff/photo.jpg<fanart>
+</item>
+ 
+<item>
+<SetViewMode>500</SetViewMode>
+<title>[COLOR orange][B]Documentales[/B] [COLOR white]Grandes Documentales[/COLOR]</title>
+ <thumbnail>http://microgdl.com/wp-content/uploads/2012/03/documental_ambiental_blog.jpg</thumbnail>
+<link>$doregex[makelist]</link>
+<regex><name>makelist</name>
+<listrepeat><![CDATA[   
+<title>[makelist.param1]</title>
+<link>plugin://plugin.video.youtube/play/?video_id=[makelist.param2]</link>
+<thumbnail>https://i.ytimg.com/vi/[makelist.param2]/hqdefault.jpg</thumbnail>
+]]></listrepeat>
+<expres>title="(.*?)".*?watch\?v=(.*?)[",&amp;]</expres>
+<!-- Lista todo el contenido del canal. -->
+<page>https://www.youtube.com/channel/UCiwazSMPs2OQuljxifCvSiA</page>
+</regex>  
+<thumbnail>https://i.ytimg.com/vi/[makelist.param1]/hqdefault.jpg</thumbnail>
+</item>
+  
+<item>
+<SetViewMode>500</SetViewMode>
+<title>[COLOR orange][B]Documentales[/B] [COLOR white]Grandes Documentales 2[/COLOR]</title>
+ <thumbnail>http://www.trewhelaschool.cl/wp-content/uploads/2017/06/documental.jpg</thumbnail>
+<link>$doregex[makelist]</link>
+<regex><name>makelist</name>
+<listrepeat><![CDATA[   
+<title>[makelist.param1]</title>
+<link>plugin://plugin.video.youtube/play/?video_id=[makelist.param2]</link>
+<thumbnail>https://i.ytimg.com/vi/[makelist.param2]/hqdefault.jpg</thumbnail>
+]]></listrepeat>
+<expres>title="(.*?)".*?watch\?v=(.*?)[",&amp;]</expres>
+<!-- Lista todo el contenido del canal. -->
+<page>https://www.youtube.com/channel/UCUh-JaqgVO1s29x6e49tHCw</page>
+</regex>  
+<thumbnail>https://i.ytimg.com/vi/[makelist.param1]/hqdefault.jpg</thumbnail>
+</item>
+<item>
+ <title>[COLOR white]Documentales [COLOR orange][B] Torrent [/B][/COLOR][/COLOR]</title>
+ <thumbnail>https://abogadaalonsodelatorre.files.wordpress.com/2014/03/record_paper2.png</thumbnail>
+ <link>ignore</link>
+ <externallink>https://raw.githubusercontent.com/Andorth/Hercules/master/documentales/documentales-torrent.xml</externallink>
+ </item>
+ <item>
+ <title>[COLOR white]Documentales [COLOR orange][B] Stream H265 [/B][/COLOR][/COLOR]</title>
+ <thumbnail>https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/movie_camera.png</thumbnail>
+ <link>ignore</link>
+ <externallink>https://raw.githubusercontent.com/Andorth/Hercules/master/documentales/h265.xml</externallink>
+ </item>
+</items>
